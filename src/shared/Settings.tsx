@@ -9,7 +9,7 @@ const stateToLoad = `eyJST09UIjp7InR5cGUiOiJmb3JtIiwiaXNDYW52YXMiOmZhbHNlLCJwcm9
  const SettingsPanel = () =>{
 
     const { connectors:{create}, query,actions:{addNodeTree,add,deserialize} } = useEditor();
-    const ref = useRef()
+    const ref = useRef(null)
     useEffect(()=>{
         if(ref.current){
             // @ts-ignore
@@ -54,6 +54,7 @@ const stateToLoad = `eyJST09UIjp7InR5cGUiOiJmb3JtIiwiaXNDYW52YXMiOmZhbHNlLCJwcm9
         Copy Data
     </button>
                 <button
+                ref={ref}
                 onClick={e=>{
                     e.preventDefault()
                     const json = lz.decompress(lz.decodeBase64(stateToLoad));
