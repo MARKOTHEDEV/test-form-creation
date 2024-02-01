@@ -10,12 +10,12 @@ const stateToLoad = `eyJST09UIjp7InR5cGUiOiJmb3JtIiwiaXNDYW52YXMiOmZhbHNlLCJwcm9
 
     const { connectors:{create}, query,actions:{addNodeTree,add,deserialize} } = useEditor();
     const ref = useRef()
-
     useEffect(()=>{
-        const json = lz.decompress(lz.decodeBase64(stateToLoad));
-        deserialize(json);
+        if(ref.current){
+            // @ts-ignore
+            ref.current.click()
+        }
     },[])
-    
     return (
         <div>   
 
